@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 1.1.4
           terraform_wrapper: false
       - uses: champ-oss/update-terraform-lockfile@3a947b42002ca81622e1e2af4839bfdfa298a2f6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

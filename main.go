@@ -12,6 +12,8 @@ const lockFile = ".terraform.lock.hcl"
 
 func main() {
 	log.SetLevel(log.DebugLevel)
+
+	token := config.GetToken()
 	workspace := config.GetWorkspace()
 	repoName := config.GetRepoName()
 	ownerName := config.GetOwnerName()
@@ -70,7 +72,7 @@ func main() {
 		}
 	}
 
-	client := github.GetClient("")
+	client := github.GetClient(token)
 	err = github.CreatePullRequest(client, ownerName, repoName, "Update Terraform Lockfile", pullRequestBranch, targetBranch)
 	if err != nil {
 		log.Fatal(err)
