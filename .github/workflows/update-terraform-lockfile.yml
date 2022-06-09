@@ -15,6 +15,6 @@ jobs:
         with:
           terraform_version: 1.1.4
           terraform_wrapper: false
-      - uses: champ-oss/update-terraform-lockfile@3a947b42002ca81622e1e2af4839bfdfa298a2f6
+      - uses: champ-oss/update-terraform-lockfile@e9d76db17ee9e148d4d13658ca12e6930dd81094
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
