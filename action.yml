@@ -1,0 +1,35 @@
+name: 'update-terraform-lockfile'
+inputs:
+  target-branch:
+    description: 'Target branch for pull request'
+    required: false
+    default: 'main'
+  pull-request-branch:
+    description: 'Branch to push changes'
+    required: false
+    default: 'update-terraform-lockfile'
+  user:
+    description: 'Git username'
+    required: false
+    default: 'update-terraform-lockfile'
+  email:
+    description: 'Git email'
+    required: false
+    default: '41898282+github-actions[bot]@users.noreply.github.com'
+  commit-message:
+    description: 'Commit message to use'
+    required: false
+    default: 'Updated terraform lockfile'
+
+runs:
+  using: "composite"
+  steps:
+    - run: go run main.go
+      working-directory: ${{ github.action_path }}
+      shell: bash
+      env:
+        INPUT_TARGET_BRANCH: ${{ inputs.target-branch }}
+        INPUT_PULL_REQUEST_BRANCH: ${{ inputs.pull-request-branch }}
+        INPUT_USER: ${{ inputs.user }}
+        INPUT_EMAIL: ${{ inputs.email }}
+        INPUT_COMMIT_MESSAGE: ${{ inputs.commit-message }}
