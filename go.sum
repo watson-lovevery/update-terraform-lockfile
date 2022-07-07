@@ -40,8 +40,8 @@ github.com/acomagu/bufpipe v1.0.3/go.mod h1:mxdxdup/WdsKVreO5GpW4+M/1CE2sMG4jeGJ
 github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239/go.mod h1:2FmKhYUyUczH0OGQWaF5ceTx0UBShxjsH6f8oGKYe2c=
 github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5/go.mod h1:wHh0iHkYZB8zMSxRWpUBQtwG5a7fFgvEO+odwuTv2gs=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
-github.com/champ-oss/file-sync v1.0.21-8c55edd h1:hGA1UYSPnmqXVPjoTyrLXujsUBdQl8CbWF5vFUofKcw=
-github.com/champ-oss/file-sync v1.0.21-8c55edd/go.mod h1:u+cvVzuxsk21YyLofkLtxVQDphNa2jlQFZTCpfGQBrE=
+github.com/champ-oss/file-sync v1.0.23-a78c035 h1:jlaRHTtox6MCDc5TPZVIAkpu7j0fZzy2qNsrRZDlGXg=
+github.com/champ-oss/file-sync v1.0.23-a78c035/go.mod h1:u+cvVzuxsk21YyLofkLtxVQDphNa2jlQFZTCpfGQBrE=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
