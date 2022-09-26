@@ -15,7 +15,8 @@ func main() {
 	log.SetLevel(log.DebugLevel)
 
 	token := config.GetToken()
-	workspace := os.Getenv("WORKING_DIRECTORY")
+	workspace := config.GetWorkspace()
+	terraformDir := os.Getenv("WORKING_DIRECTORY")
 	repoName := config.GetRepoName()
 	ownerName := config.GetOwnerName()
 	targetBranch := config.GetTargetBranch()
@@ -49,7 +50,7 @@ func main() {
 		panic(err)
 	}
 
-	_, err = common.RunCommand(workspace, "terraform", "init", "-upgrade")
+	_, err = common.RunCommand(terraformDir, "terraform", "init", "-upgrade")
 	if err != nil {
 		panic(err)
 	}
