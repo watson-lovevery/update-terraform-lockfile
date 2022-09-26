@@ -17,7 +17,7 @@ jobs:
         with:
           terraform_version: 1.1.4
           terraform_wrapper: false
-      - uses: champ-oss/update-terraform-lockfile@4ccdd9c93c392ec91784fe60c4391dd7e5df2c80
+      - uses: champ-oss/update-terraform-lockfile@c574f23a5130642017033cf7d65b8bb49a7c30f7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
   test-folder:
@@ -30,7 +30,7 @@ jobs:
         with:
           terraform_version: 1.1.4
           terraform_wrapper: false
-      - uses: champ-oss/update-terraform-lockfile@4ccdd9c93c392ec91784fe60c4391dd7e5df2c80
+      - uses: champ-oss/update-terraform-lockfile@c574f23a5130642017033cf7d65b8bb49a7c30f7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: test
