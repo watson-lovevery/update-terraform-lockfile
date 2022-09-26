@@ -6,6 +6,7 @@ import (
 	"github.com/champ-oss/file-sync/pkg/git/cli"
 	"github.com/champ-oss/file-sync/pkg/github"
 	log "github.com/sirupsen/logrus"
+	"os"
 )
 
 const lockFile = ".terraform.lock.hcl"
@@ -14,7 +15,7 @@ func main() {
 	log.SetLevel(log.DebugLevel)
 
 	token := config.GetToken()
-	workspace := config.GetWorkspace()
+	workspace := os.Getenv("WORKING_DIRECTORY")
 	repoName := config.GetRepoName()
 	ownerName := config.GetOwnerName()
 	targetBranch := config.GetTargetBranch()
