@@ -24,6 +24,10 @@ inputs:
     description: 'Commit message to use'
     required: false
     default: 'Updated terraform lockfile'
+  working-directory:
+    description: 'Directory to run the action from'
+    required: false
+    default: ${{ github.workspace }}
 
 runs:
   using: "composite"
@@ -38,3 +42,4 @@ runs:
         INPUT_USER: ${{ inputs.user }}
         INPUT_EMAIL: ${{ inputs.email }}
         INPUT_COMMIT_MESSAGE: ${{ inputs.commit-message }}
+        WORKING_DIRECTORY: ${{ inputs.working-directory }}
