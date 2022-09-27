@@ -37,7 +37,8 @@ runs:
         cd ${GITHUB_WORKSPACE}
         ${GITHUB_ACTION_PATH}/update-terraform-lockfile
         ls -la
-        la -la ${GITHUB_ACTION_PATH}
+        ls -la terraform/
+        ls -la ${GITHUB_ACTION_PATH}
         git status
       shell: bash
       env:
