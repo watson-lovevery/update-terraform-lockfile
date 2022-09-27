@@ -32,7 +32,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: go run ${GITHUB_ACTION_PATH}/main.go
+    - run: |
+        cd ${{ github.action_path }} && go build && cd ..
+        ./${GITHUB_ACTION_PATH}/update-terraform-lockfile
       working-directory: ${{ github.workspace }}
       shell: bash
       env:
