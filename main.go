@@ -50,7 +50,7 @@ func main() {
 		panic(err)
 	}
 
-	_, err = common.RunCommand(terraformDir, "terraform", "init", "-upgrade")
+	_, err = common.RunCommand(terraformDir, "terraform", "init", "-upgrade", "-backend=false")
 	if err != nil {
 		panic(err)
 	}
