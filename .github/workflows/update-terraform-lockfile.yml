@@ -4,22 +4,9 @@ on:
   workflow_dispatch:
   push:
   schedule:
-   - cron: "0 4 * * *"
+    - cron: "0 4 * * *"
 
 jobs:
-  root-folder:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: hashicorp/setup-terraform@v2.0.3
-        with:
-          terraform_version: 1.1.4
-          terraform_wrapper: false
-      - uses: champ-oss/update-terraform-lockfile@66c4fb7ace109a11aab137fa17fc820c3ae19ce8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
   test-folder:
     runs-on: ubuntu-latest
     steps:
@@ -28,9 +15,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: hashicorp/setup-terraform@v2.0.3
         with:
-          terraform_version: 1.1.4
+          terraform_version: 1.5.7
           terraform_wrapper: false
       - uses: champ-oss/update-terraform-lockfile@66c4fb7ace109a11aab137fa17fc820c3ae19ce8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: test
+          working-directory: live
