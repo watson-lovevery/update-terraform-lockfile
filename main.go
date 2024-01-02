@@ -14,7 +14,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-const lockFile = ".terraform.lock.hcl"
+const lockFile = "**/.terraform.lock.hcl"
 
 func main() {
 	log.SetLevel(log.DebugLevel)
@@ -101,11 +101,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		client := github.GetClient(token)
+		err = github.CreatePullRequest(client, ownerName, repoName, "Update Terraform Lockfile", pullRequestBranch, targetBranch)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
-	client := github.GetClient(token)
-	err = github.CreatePullRequest(client, ownerName, repoName, "Update Terraform Lockfile", pullRequestBranch, targetBranch)
-	if err != nil {
-		log.Fatal(err)
-	}
 }
