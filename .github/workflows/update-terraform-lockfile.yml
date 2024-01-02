@@ -17,6 +17,11 @@ jobs:
         with:
           terraform_version: 1.5.7
           terraform_wrapper: false
+      - name: Setup Terragrunt
+        uses: autero1/action-terragrunt@v1.1.0
+        with:
+          terragrunt_version: 0.21.13
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: watson-lovevery/update-terraform-lockfile@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
