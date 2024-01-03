@@ -33,27 +33,27 @@ func main() {
 
 	err := cli.SetAuthor(workspace, user, email)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	err = cli.Fetch(workspace)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	err = cli.Branch(workspace, pullRequestBranch)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	err = cli.Checkout(workspace, pullRequestBranch)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	err = cli.Reset(workspace, pullRequestBranch)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 
 	err = filepath.WalkDir(terraformDir, func(path string, d fs.DirEntry, err error) error {
@@ -64,14 +64,14 @@ func main() {
 				data, err := os.ReadFile(path + "/terragrunt.hcl")
 
 				if err != nil {
-					log.Error(err)
+					log.Panic(err)
 				}
 
 				if strings.Contains(string(data), "source = ") {
 					log.Info("Updating terraform providers in ", path)
 					_, err = common.RunCommand(path, terraCmd, "init", "-upgrade", "-backend=false")
 					if err != nil {
-						log.Error(err)
+						log.Panic(err)
 					}
 				} else {
 					log.Info("No source module configured, moving on.")
@@ -89,7 +89,7 @@ func main() {
 	} else {
 		err = cli.Add(terraformDir, lockFile)
 		if err != nil {
-			panic(err)
+			log.Panic(err)
 		}
 
 		err = cli.Commit(workspace, commitMsg)
